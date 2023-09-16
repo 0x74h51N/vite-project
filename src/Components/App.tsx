@@ -12,11 +12,11 @@ const App: FC = () => {
   const [theme, setTheme] = useState('light');
   
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+  <ThemeContext.Provider value={{ theme, setTheme }}>
   <div className={`theme-${theme}`}>
   <Layout>
-    <div>
-    <div>
+  <div >
+      <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
@@ -40,9 +40,7 @@ const App: FC = () => {
     </div>
     </Layout>
   </div>
-</ThemeContext.Provider>
-    
-    
+</ThemeContext.Provider>   
   );
 }
 

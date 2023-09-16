@@ -118,9 +118,9 @@
 /*Footer styles*/
 .footer {
   width: 100%;
-  z-index: 99;
+  z-index: 10;
   height: 78px;
-  display: flex;
+  
   @include themify($themes) {
     background: themed('headerFooterBackground');
     color: themed('textColor');
