@@ -1,15 +1,22 @@
-import { useState } from "react";
+import {FC, useState } from "react";
 import reactLogo from "../assets/react.svg";
 import "../App.css";
 import ApiSample from "./apiSample";
+import { ThemeContext } from './theme-context';
+import Layout from '..//layout';
 
-function App() {
+const App: FC = () => {
+  // Detecting the default theme
+  const isBrowserDefaulDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [count, setCount] = useState(0);
-  const items = ["Elma", "Armut", "Havuç", "Hıyar"];
-
+  const [theme, setTheme] = useState('light');
+  
   return (
-    <div className="App">
-      <div>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+  <div className={`theme-${theme}`}>
+  <Layout>
+    <div>
+    <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
@@ -31,6 +38,11 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </div>
+    </Layout>
+  </div>
+</ThemeContext.Provider>
+    
+    
   );
 }
 
