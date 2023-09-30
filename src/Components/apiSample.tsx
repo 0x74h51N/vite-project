@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 const apiSample = () => {
@@ -17,12 +17,23 @@ const apiSample = () => {
 
   return (
     <div>
-      <input type="text" onChange={(e) => setQuery(e.target.value)} />
-      <ul>
-        {hits.map((hit) => (
-          <li key={hit.objectID}>{hit.title}</li>
-        ))}
-      </ul>
+      <div>
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <ul>
+          {hits.map((hit) => (
+            <div className="card mb-1" key={hit.objectID}>
+              <div className="card-body">
+                <h5 className="card-title">Title: {hit.title}</h5>
+                <p className="card-text">Author: {hit.author}</p>
+              </div>
+            </div>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
